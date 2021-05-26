@@ -1,1 +1,71 @@
+@import './variables.scss';
 @import '~bootstrap/scss/bootstrap.scss';
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
+
+html, body {
+  font-family: 'Raleway', sans-serif;
+}
+
+.bg-cloud{
+  background-image: url('./../assets/Cloud-background.png');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-blend-mode: soft-light;
+}
+.btn-gps{
+  height: auto;
+  padding: 5px;
+  line-height: 0;
+  position: relative;
+  left: 35px;
+}
+.fw-500{
+  font-weight: 500;
+}
+.gps-icon{
+  width: 20px;
+}
+.measure>.number{
+  font-weight: 700;
+  font-size: 4rem;
+}
+.measure>.type{
+  font-weight: 500;
+  font-size: 2.2rem;
+}
+.card.forecast{
+  // min-width: 80px;
+  // max-width: 130px;
+  width: 135px;
+}
+.stats{
+  padding: 50px;
+}
+.bottom-20{
+  bottom: 20px;
+}
+.middle{
+  left: 150px;
+}
+.end{
+  left: 290px;
+}
+.forecast>.today{
+  font-size: 8rem;
+  font-weight: 500;
+}
+.lightgray{
+  color: $lightgray;
+}
+.darkgray{
+  color: $darkgray;
+}
+.indicators{
+  font-size: 0.75rem;
+}
+.search{
+  z-index: 10;
+}
+.match:hover{
+  text-decoration: underline;
+}
