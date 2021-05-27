@@ -11,16 +11,17 @@ const SearchPanel = ({ setLocation }) => {
   const canvas = useRef(null)
 
   const searchLocation = async () => {
-    setMatches([])
-    setLoading(true)
-    const strToSearch = inputText.current.value
-    try {
-      const cities = await getMatches(strToSearch)
-      setMatches(cities)
-    } catch (e) {
-      console.log('HEY ', e)
-    } finally {
-      setLoading(false)
+    if (inputText.current.value) {
+      setMatches([])
+      setLoading(true)
+      try {
+        const cities = await getMatches(inputText.current.value)
+        setMatches(cities)
+      } catch (e) {
+        console.log('HEY ', e)
+      } finally {
+        setLoading(false)
+      }
     }
   }
   const handleSearch = (id) => {
@@ -49,11 +50,11 @@ const SearchPanel = ({ setLocation }) => {
           <img src={searchIcon} className="position-absolute search ms-2" width="25" alt="Search icon"></img>
           <input
             ref={inputText}
+            onChange={searchLocation}
             type="text"
             className="form-control bg-dark text-light ps-5"
             aria-label="Text input with segmented dropdown button"
             placeholder="Location"/>
-          <button type="button" onClick={searchLocation} className="btn text-light" style={{ background: '#3C47E9' }}>Search</button>
         </div>
         {
           isLoading &&
